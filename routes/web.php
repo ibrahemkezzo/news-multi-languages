@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('dashboard.index');
 });
+
+Route::group(['prefix'=>'dashboard',
+                'as'=>'dashboard'],
+            function(){
+                Route::get('/settings',function(){
+                    return view('dashboard.settings');
+                });
+            }
+            ); 

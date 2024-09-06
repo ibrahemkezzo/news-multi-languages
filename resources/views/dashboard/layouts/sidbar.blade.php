@@ -2,7 +2,7 @@
          <nav class="sidebar-nav">
              <ul class="nav">
                  <li class="nav-item">
-                     <a class="nav-link" href="index.html"><i class="icon-speedometer"></i> داشبرد <span class="tag tag-info">جدید</span></a>
+                     <a class="nav-link" href="index.html"><i class="icon-speedometer"></i> {{__('words.dashboard')}} <span class="tag tag-info">جدید</span></a>
                  </li>
 
                  <li class="nav-title">
