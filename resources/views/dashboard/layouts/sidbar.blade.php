@@ -9,6 +9,7 @@
                     مدیریت کاربران
                  </li>
                   <li class="nav-item">
+                     <a class="nav-link" href="{{route('dashboard.settings.index')}}"><i class="icon-user-follow"></i>{{__('words.sittings')}}</a>
                      <a class="nav-link" href="#"><i class="icon-user-follow"></i> ثبت کاربر</a>
                      <a class="nav-link" href="#"><i class="icon-people"></i> لیست کاربران</a>
                      <a class="nav-link" href="#"><i class="icon-user-following"></i> دسترسی کاربران</a>

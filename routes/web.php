@@ -13,15 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard.index');
-});
+require __DIR__ . '/dashboard.php';
 
-Route::group(['prefix'=>'dashboard',
-                'as'=>'dashboard'],
-            function(){
-                Route::get('/settings',function(){
-                    return view('dashboard.settings');
-                });
-            }
-            ); 
+

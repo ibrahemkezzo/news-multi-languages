@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('setting_traslations', function (Blueprint $table) {
+        Schema::create('setting_translations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('setting_id')->constrained('settings')->onDelete('cascade');
             $table->string('locale')->index();  // ar en fr tr

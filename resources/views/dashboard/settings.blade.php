@@ -8,7 +8,7 @@
         </li>
         <li class="breadcrumb-item active">داشبرد</li>
 
-       
+
     </ol>
 
 
@@ -38,7 +38,7 @@
                             <div class="form-group col-md-6">
                                 <label>{{ __('words.logo') }}</label>
                                 <img src="{{asset($setting->logo)}}" alt="" style="height: 50px">
-                            </div>  
+                            </div>
                             <div class="form-group col-md-6">
                                 <label>{{ __('words.favicon') }}</label>
                                 <img src="{{asset($setting->favicon)}}" alt="" style="height: 50px">

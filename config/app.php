@@ -85,7 +85,7 @@ return [
     'locale' => 'en',
 
 
-    'laguages'=> [
+    'languages'=> [
         'ar'=>'العربية',
         'en'=>'English',
         'fr'=>'frensh',
