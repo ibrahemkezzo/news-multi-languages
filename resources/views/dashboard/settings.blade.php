@@ -1,17 +1,24 @@
 @extends('dashboard.layouts.layout')
 
 @section('body')
+
     <!-- Breadcrumb -->
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">{{__('words.dashboard')}}</li>
-        <li class="breadcrumb-item"><a href="#">{{__('words.dashboard')}}</a>
+     <!-- Breadcrumb -->
+     <ol class="breadcrumb">
+        <li class="breadcrumb-item">خانه</li>
+        <li class="breadcrumb-item"><a href="#">مدیریت</a>
         </li>
         <li class="breadcrumb-item active">داشبرد</li>
 
-
+        <!-- Breadcrumb Menu-->
+        <li class="breadcrumb-menu">
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                <a class="btn btn-secondary" href="#"><i class="icon-speech"></i></a>
+                <a class="btn btn-secondary" href="./"><i class="icon-graph"></i> &nbsp;داشبرد</a>
+                <a class="btn btn-secondary" href="#"><i class="icon-settings"></i> &nbsp;تنظیمات</a>
+            </div>
+        </li>
     </ol>
-
-
     {{-- {{dd($setting)}} --}}
 
     <div class="container-fluid">
@@ -138,4 +145,5 @@
             </form>
         </div>
     </div>
+
     @endsection

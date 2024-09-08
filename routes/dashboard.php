@@ -4,7 +4,9 @@ use App\Http\Controllers\dashboard\SettingController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix'=>'dashboard',
-                'as'=>'dashboard.'],
+                'as'=>'dashboard.',
+                'middleware'=>['auth','checkstatus'],
+                ],
             function(){
                 Route::get('/', function () {
                     return view('dashboard.index');

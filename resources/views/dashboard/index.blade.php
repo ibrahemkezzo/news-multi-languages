@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.layout')
 
 @section('body')
-<main class="main">
+
 
     <!-- Breadcrumb -->
     <ol class="breadcrumb">
@@ -115,5 +115,5 @@
 
     </div>
     <!--/.container-fluid-->
-</main>
+
 @endsection
