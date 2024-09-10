@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tag_translations', function (Blueprint $table) {
-            $table->id();
-            $table->string('locale')->index();
-            $table->foreignId('tag_id')->constrained('tags')->onDelete('cascade');
-            $table->unique(['locale','tag_id']);
-            $table->timestamps();
+        Schema::table('post_translations', function (Blueprint $table) {
+            $table->text('tags')->nullable();
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tag_translations');
+        Schema::table('post_translations', function (Blueprint $table) {
+            $table->dropColumn('tags');
+        });
     }
 };

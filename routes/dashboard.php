@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\dashboard\CategoryController;
+use App\Http\Controllers\dashboard\PostController;
 use App\Http\Controllers\dashboard\SettingController;
 use App\Http\Controllers\dashboard\UserController;
 use Illuminate\Support\Facades\Route;
@@ -22,10 +23,13 @@ Route::group([
         Route::post('/categories/delete',[UserController::class,'delete'])->name('categories.delete');
         Route::get('/categories/all', [UserController::class, 'getCategoriesDatatable'])->name('categories.all');
 
+        Route::get('/posts/all', [PostController::class, 'getPostsDatatable'])->name('posts.all');
+        Route::post('/posts/delete', [PostController::class, 'delete'])->name('posts.delete');
 
         Route::resources([
             'users' => UserController::class,
             'category' => CategoryController::class,
+            'posts' => PostController::class,
         ]);
     }
     );
