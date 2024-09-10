@@ -44,7 +44,7 @@ class SettingController extends Controller
             $path = '/images/' . $filename;
             $setting->update(['favicon' => $path]);
         }
-        return redirect()->route('dashboard.settings');
+        return redirect()->route('dashboard.settings.index');
 
     }
 }

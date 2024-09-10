@@ -16,10 +16,10 @@ class CheckStatus
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::user()->status != 'admin' || Auth::user()->status != 'writer'){
+        if(Auth::user()->status != 'admin' && Auth::user()->status != 'writer'){
 
+          
             auth()->logout();
-            // dd(Auth::user());
 
 
             return redirect()->route('login');
