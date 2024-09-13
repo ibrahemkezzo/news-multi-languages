@@ -7,6 +7,7 @@ use App\Http\Trait\UploadImage;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class PostController extends Controller
 {
@@ -30,7 +31,7 @@ class PostController extends Controller
     public function getPostsDatatable()
     {
         $data = Post::select('*')->with('category');
-        return  Datatables::of($data)
+        return  DataTables::of($data)
             ->addIndexColumn()
             ->addColumn('action', function ($row) {
 

@@ -20,8 +20,8 @@ Route::group([
         Route::post('/users/delete',[UserController::class,'delete'])->name('users.delete');
         Route::get('/users/all', [UserController::class, 'getUsersDatatable'])->name('users.all');
 
-        Route::post('/categories/delete',[UserController::class,'delete'])->name('categories.delete');
-        Route::get('/categories/all', [UserController::class, 'getCategoriesDatatable'])->name('categories.all');
+        Route::post('/category/delete',[CategoryController::class,'delete'])->name('category.delete');
+        Route::get('/category/all', [CategoryController::class, 'getCategoriesDatatable'])->name('category.all');
 
         Route::get('/posts/all', [PostController::class, 'getPostsDatatable'])->name('posts.all');
         Route::post('/posts/delete', [PostController::class, 'delete'])->name('posts.delete');

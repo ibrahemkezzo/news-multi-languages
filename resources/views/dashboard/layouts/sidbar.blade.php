@@ -11,9 +11,10 @@
                         {{ __('words.users') }}</a>
                     <ul class="nav-dropdown-items">
                         <li class="nav-item">
+                            @can('view', $setting)
                             <a class="nav-link" href="{{ route('dashboard.users.create') }}"><i
                                     class="icon-user-follow"></i>{{ __('words.add user') }}</a>
-
+                            @endcan
                             <a class="nav-link" href="{{ route('dashboard.users.index') }}"><i class="icon-people"></i>
                                 {{ __('words.users') }}</a>
                         </li>
@@ -46,14 +47,14 @@
                     </ul>
                 </li>
 
-
+                @can('view', $setting)
                 <li class="nav-item">
-                     <a class="nav-link" href="{{route('dashboard.settings.index')}}"><i class="icon-user-follow"></i>{{__('words.sittings')}}</a>
+                     <a class="nav-link" href="{{route('dashboard.settings.index')}}"><i class="icon-user-follow"></i>{{__('words.settings')}}</a>
 
                      {{-- <a class="nav-link" href="#"><i class="icon-people"></i> لیست کاربران</a>
                      <a class="nav-link" href="#"><i class="icon-user-following"></i> دسترسی کاربران</a> --}}
                 </li>
-
+                @endcan
                  {{-- <li class="nav-title">
                     مدیریت فایل ها
                  </li>

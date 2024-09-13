@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -32,7 +33,8 @@ class CategoryController extends Controller
     public function getCategoriesDatatable()
     {
         $data = Category::select('*')->with('parents');
-        return  DataTables::of($data)
+        
+        return  Datatables::of($data)
             ->addIndexColumn()
             ->addColumn('action', function ($row) {
 
@@ -112,7 +114,7 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Category $category)
     {
 
         $this->authorize('viewAny', $this->setting);

@@ -22,6 +22,6 @@ return [
     'email'=>'Email',
     'password'=>'Password',
     'Settings'=>'Settings',
-    ''=>'',
+    'logout'=>'Logout',
     ''=>'',
 ];

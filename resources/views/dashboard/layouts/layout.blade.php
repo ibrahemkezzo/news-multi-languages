@@ -9,14 +9,13 @@
  <html lang="IR-fa" dir="rtl">
 
  <head>
-     <meta charset="utf-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-     <meta name="description" content="CoreUI Bootstrap 4 Admin Template">
-     <meta name="author" content="Lukasz Holeczek">
-     <meta name="keyword" content="CoreUI Bootstrap 4 Admin Template">
-     <!-- <link rel="shortcut icon" href="assets/ico/favicon.png"> -->
-     <title>CoreUI Bootstrap 4 Admin Template</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{{ $setting->translate(app()->getlocale())->content }}">
+    <meta name="keyword" content="{{ $setting->translate(app()->getlocale())->title }}">
+    <link rel="shortcut icon" href="{{ asset($setting->favicon) }}">
+    <title>{{ $setting->translate(app()->getlocale())->title }}</title>
      <!-- Icons -->
      <link href="{{asset('dashboardfiles/css/font-awesome.min.css')}}" rel="stylesheet">
      <link href="{{asset('dashboardfiles/css/simple-line-icons.css')}}" rel="stylesheet">
@@ -57,6 +56,8 @@
                  <li class="nav-item">
                      <a class="nav-link aside-toggle" href="#"><i class="icon-bell"></i><span class="tag tag-pill tag-danger">5</span></a>
                  </li>
+
+
                  <li class="nav-item">
                      <a class="nav-link" href="#"><i class="icon-list"></i></a>
                  </li>
@@ -64,9 +65,25 @@
                      <a class="nav-link" href="#"><i class="icon-location-pin"></i></a>
                  </li>
                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="true" aria-expanded="false">
+                        <span class="hidden-md-down">{{ LaravelLocalization::getCurrentLocaleNative() }}</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+
+                        @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                            <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
+                                href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                {{ $properties['native'] }}
+                            </a>
+                        @endforeach
+
+                    </div>
+                </li>
+                 <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                          <img src="{{asset('dashboardfiles/img/avatars/6.jpg')}}" class="img-avatar" alt="admin@bootstrapmaster.com">
-                         <span class="hidden-md-down">مدیر</span>
+                         <span class="hidden-md-down">{{auth()->user()->name}}</span>
                      </a>
                      <div class="dropdown-menu dropdown-menu-right">
                          <div class="dropdown-header text-xs-center">

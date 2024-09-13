@@ -10,9 +10,12 @@ use Illuminate\Support\Str;
 class SettingController extends Controller
 {
     public function index(){
+        $setting = Setting::first();
+        $this->authorize('view', $setting);
         return view('dashboard.settings');
     }
     public function update(Request $request , Setting $setting){
+        $this->authorize('update', $setting);
 
         $data = [
             'image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
