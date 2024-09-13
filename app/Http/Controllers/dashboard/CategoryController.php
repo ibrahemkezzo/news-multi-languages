@@ -33,7 +33,7 @@ class CategoryController extends Controller
     public function getCategoriesDatatable()
     {
         $data = Category::select('*')->with('parents');
-        
+
         return  Datatables::of($data)
             ->addIndexColumn()
             ->addColumn('action', function ($row) {
@@ -79,14 +79,15 @@ class CategoryController extends Controller
     {
 
         $this->authorize('viewAny', $this->setting);
-        $category =  Category::create($request->except('image', '_token'));
+        $category =  $request->except('image', '_token');
         if ($request->file('image')) {
             $file = $request->file('image');
             $filename = Str::uuid() . $file->getClientOriginalName();
             $file->move(public_path('images'), $filename);
             $path = 'images/' . $filename;
-            $category->update(['image' => $path]);
+            $category['image'] = $path;
         }
+        Category::create($category);
         return redirect()->route('dashboard.category.index');
 
     }
@@ -102,7 +103,7 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Category $category)
     {
 
         $this->authorize('viewAny', $this->setting);

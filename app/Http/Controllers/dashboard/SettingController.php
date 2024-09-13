@@ -9,12 +9,14 @@ use Illuminate\Support\Str;
 
 class SettingController extends Controller
 {
-    public function index(){
+    public function index(){    
         $setting = Setting::first();
         $this->authorize('view', $setting);
+        // dd($setting);
         return view('dashboard.settings');
     }
     public function update(Request $request , Setting $setting){
+
         $this->authorize('update', $setting);
 
         $data = [
@@ -32,21 +34,29 @@ class SettingController extends Controller
             $data[$key . '*.address'] = 'nullable|string';
         }
         $validatedData = $request->validate($data);
-        $setting->update($request->except('image', 'favicon', '_token'));
+        $updata = $request->except('logo', 'favicon', '_token');
+
+         $setting->update($request->except('logo', 'favicon', '_token'));
         if ($request->file('logo')) {
             $file = $request->file('logo');
             $filename = Str::uuid() . $file->getClientOriginalName();
             $file->move(public_path('images'), $filename);
-            $path = 'images/' . $filename;
-            $setting->update(['logo' => $path]);
+            $path = '/images/' . $filename;
+            $updata['logo'] = $path;
+            // dd($updata);
+            // $setting->update(['logo' => $path]);
         }
         if ($request->file('favicon')) {
             $file = $request->file('favicon');
             $filename = Str::uuid() . $file->getClientOriginalName();
             $file->move(public_path('images'), $filename);
             $path = '/images/' . $filename;
-            $setting->update(['favicon' => $path]);
+            // dd($path);
+            $updata['favicon'] = $path;
         }
+        // dd($updata);
+        $setting->update($updata);
+
         return redirect()->route('dashboard.settings.index');
 
     }
