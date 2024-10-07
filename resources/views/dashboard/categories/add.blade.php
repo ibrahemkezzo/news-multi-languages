@@ -42,17 +42,10 @@
                         </div>
                         <div class="card-block">
 
-
-
-
                             <div class="form-group col-md-12">
                                 <label>{{ __('words.image') }}</label>
-                                <input type="file" name="image" class="form-control" placeholder="{{ __('words.image') }}"
-                                   >
+                                <input type="file" name="image" class="form-control" placeholder="{{ __('words.image') }}">
                             </div>
-
-
-
                             <div class="form-group col-md-12">
                                 <label>{{ __('words.status') }}</label>
                                 <select name="parent" id="" class="form-control">
@@ -114,21 +107,6 @@
                             </div>
 
                         </div>
-
-
-
-
-
-
-
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>
-                                Submit</button>
-
-                        </div>
-
-
-
                     </div>
             </form>
         </div>

@@ -22,7 +22,7 @@
     {{-- {{dd($setting)}} --}}
 
     <div class="container-fluid">
-      
+
         <div class="animated fadeIn">
             <form action="{{Route('dashboard.settings.update' , $setting->id)}}" method="post" enctype="multipart/form-data">
                 @csrf

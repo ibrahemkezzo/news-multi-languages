@@ -77,6 +77,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $data = [
+            'logo' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+        ];
+        foreach (config('app.languages') as $key => $value) {
+            $data[$key . '*.title'] = 'nullable|string';
+            $data[$key . '*.content'] = 'nullable|string';
+            $data[$key . '*.address'] = 'nullable|string';
+        }
+        $validatedData = $request->validate($data);
 
         $this->authorize('viewAny', $this->setting);
         $category =  $request->except('image', '_token');
@@ -84,9 +93,11 @@ class CategoryController extends Controller
             $file = $request->file('image');
             $filename = Str::uuid() . $file->getClientOriginalName();
             $file->move(public_path('images'), $filename);
-            $path = 'images/' . $filename;
+            $path = '/images/' . $filename;
+            // dd($path);
             $category['image'] = $path;
         }
+        // dd($category);
         Category::create($category);
         return redirect()->route('dashboard.category.index');
 
