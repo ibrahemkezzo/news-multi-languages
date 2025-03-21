@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\website\CategoryController;
+use App\Http\Controllers\website\IndexController;
+use App\Http\Controllers\website\PostController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/dashboard.php';
 
+Route::get('/', [IndexController::class, 'index'])->name('index');
+Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('category');
+Route::get('/post/{post}', [PostController::class, 'show'])->name('post');
 
 
 Auth::routes();

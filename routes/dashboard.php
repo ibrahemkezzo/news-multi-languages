@@ -15,7 +15,7 @@ Route::group([
             return view('dashboard.index');
         });
         Route::get('/settings',[SettingController::class,'index'])->name('settings.index');
-        Route::post('/settings',[SettingController::class,'update'])->name('settings.update');
+        Route::post('/settings/{setting}',[SettingController::class,'update'])->name('settings.update');
 
         Route::post('/users/delete',[UserController::class,'delete'])->name('users.delete');
         Route::get('/users/all', [UserController::class, 'getUsersDatatable'])->name('users.all');

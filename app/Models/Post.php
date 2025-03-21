@@ -10,7 +10,7 @@ use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 class Post extends Model implements TranslatableContract
 {
-    use HasFactory , Translatable , SoftDeletes ;
+    use HasFactory , Translatable , SoftDeletes ,HasEagerLimit;
     public $translatedAttributes = ['title', 'content' , 'smallDesc' , 'tags'];
     protected $fillable = ['id', 'image', 'category_id', 'created_at', 'updated_at', 'deleted_at' ,'user_id' ];
 
@@ -19,5 +19,8 @@ class Post extends Model implements TranslatableContract
     }
     function post(){
         return $this->belongsTo(Post::class);
+    }
+    function user(){
+        return $this->belongsTo(User::class);
     }
 }

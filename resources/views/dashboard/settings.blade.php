@@ -24,38 +24,33 @@
     <div class="container-fluid">
 
         <div class="animated fadeIn">
-            <form action="{{Route('dashboard.settings.update' , $setting)}}" method="post" enctype="multipart/form-data">
+            <form action="{{Route('dashboard.settings.update' , $setting->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="card">
                         <div class="card-header">
                             <strong>{{ __('words.settings') }}</strong>
                         </div>
                         <div class="card-block">
 
+
                             <div class="form-group col-md-6">
                                 <label>{{ __('words.logo') }}</label>
                                 <img src="{{asset($setting->logo)}}" alt="" style="height: 50px">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>{{ __('words.favicon') }}</label>
-                                <img src="{{asset($setting->favicon)}}" alt="" style="height: 50px">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>{{ __('words.logo') }}</label>
                                 <input type="file" name="logo" class="form-control" placeholder="Enter Email..">
                             </div>
                             <div class="form-group col-md-6">
                                 <label>{{ __('words.favicon') }}</label>
+                                <img src="{{asset($setting->favicon)}}" alt="" style="height: 50px">
                                 <input type="file" name="favicon" class="form-control"
                                     placeholder="{{ __('words.favicon') }}" >
                             </div>
