@@ -16,10 +16,9 @@
  <div class="container-fluid">
     <div class="container">
         <nav class="breadcrumb bg-transparent m-0 p-0">
-            <a class="breadcrumb-item" href="#">Home</a>
-            <a class="breadcrumb-item" href="#">Category</a>
-            <a class="breadcrumb-item" href="#">Technology</a>
-            <span class="breadcrumb-item active">News Title</span>
+            <a class="breadcrumb-item" href="{{route('index')}}">Home</a>
+            <a class="breadcrumb-item" href="{{route('category',$post->category_id)}}">{{$post->category->title}}</a>
+            <span class="breadcrumb-item active">{{$post->title}}</span>
         </nav>
     </div>
 </div>
@@ -49,12 +48,12 @@
                 </div>
                 <!-- News Detail End -->
 
-              
 
-               
+
+
             </div>
 
-          
+
         </div>
     </div>
 </div>
@@ -62,5 +61,5 @@
 <!-- News With Sidebar End -->
 
 
-    
+
 @endsection
