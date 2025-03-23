@@ -24,4 +24,10 @@ return [
     'Settings'=>'Settings',
     'logout'=>'Logout',
     'home'=>'Home',
+    'name_web'=> 'NEWS THE WORLD',
+    'room'=>'Room',
+    'news'=>'News',
+    'view_all'=>'View All',
+    'categories'=>'Categories',
+    'main_category'=>'Main Category',
 ];

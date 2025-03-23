@@ -14,8 +14,8 @@
     <div class="container-fluid">
         <div class="container">
             <nav class="breadcrumb bg-transparent m-0 p-0">
-                <a class="breadcrumb-item" href="{{route('index')}}">Home</a>
-                <a class="breadcrumb-item" href="{{route('category.index')}}">Category</a>
+                <a class="breadcrumb-item" href="{{route('index')}}">{{ __('words.home') }}</a>
+                <a class="breadcrumb-item" href="{{route('category.index')}}">{{ __('words.categories') }}</a>
                 <span class="breadcrumb-item active">{{$category->title}}</span>
             </nav>
         </div>
@@ -32,7 +32,7 @@
                         <div class="col-12">
                             <div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
                                 <h3 class="m-0">{{$category->title}}</h3>
-                                <a class="text-secondary font-weight-medium text-decoration-none" href="{{route('category.index')}}">View All</a>
+                                <a class="text-secondary font-weight-medium text-decoration-none" href="{{route('category.index')}}">{{ __('words.view_all') }}l</a>
                             </div>
                         </div>
 

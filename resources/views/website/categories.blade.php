@@ -14,8 +14,8 @@ Categories - {{$setting->title}}
     <div class="container-fluid">
         <div class="container">
             <nav class="breadcrumb bg-transparent m-0 p-0">
-                <a class="breadcrumb-item" href="{{route('index')}}">Home</a>
-                <span class="breadcrumb-item active">Categories</span>
+                <a class="breadcrumb-item" href="{{route('index')}}">{{ __('words.home') }}</a>
+                <span class="breadcrumb-item active">{{ __('words.categories') }}</span>
             </nav>
         </div>
     </div>
@@ -30,7 +30,7 @@ Categories - {{$setting->title}}
                     <div class="row">
                         <div class="col-12">
                             <div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
-                                <h3 class="m-0">categories</h3>
+                                <h3 class="m-0">{{ __('words.categories') }}</h3>
 
                             </div>
                         </div>
@@ -52,7 +52,7 @@ Categories - {{$setting->title}}
 
                                             </a>
                                             @else
-                                            <a href="#">Main Category</a>
+                                            <a href="#">{{ __('words.main_category') }}</a>
                                            @endif
                                         </div>
                                         <a class="h4" href="{{Route('category',$category->id)}}">{{$category->title}}</a>
