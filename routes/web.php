@@ -21,6 +21,7 @@ require __DIR__ . '/dashboard.php';
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('category');
+Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
 Route::get('/post/{post}', [PostController::class, 'show'])->name('post');
 
 

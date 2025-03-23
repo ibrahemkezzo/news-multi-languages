@@ -122,21 +122,6 @@
                             </div>
 
                         </div>
-
-
-
-
-
-
-
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>
-                                Submit</button>
-
-                        </div>
-
-
-
                     </div>
             </form>
         </div>

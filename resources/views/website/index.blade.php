@@ -43,7 +43,7 @@
             <div class="col-lg-4">
                 <div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
                     <h3 class="m-0">{{ __('words.categories') }}</h3>
-                    <a class="text-secondary font-weight-medium text-decoration-none" href="">View All</a>
+                    <a class="text-secondary font-weight-medium text-decoration-none" href="{{route('category.index')}}">View All</a>
                 </div>
                 @foreach ($categories as $category)
                 <div class="position-relative overflow-hidden mb-3" style="height: 80px;">
@@ -53,7 +53,7 @@
                     </a>
                 </div>
                 @endforeach
-               
+
             </div>
         </div>
     </div>
@@ -69,18 +69,18 @@
     <div class="container">
         <div class="row">
             @foreach ($categories_with_posts as $category)
-                
+
             @if (count($category->posts)>0)
-                
-            
+
+
             <div class="col-lg-6 py-3">
                 <div class="bg-light py-2 px-4 mb-3">
                     <h3 class="m-0">{{$category->title}}</h3>
                 </div>
                 <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
                     @foreach ($category->posts as $post)
-                        
-                   
+
+
                     <div class="position-relative">
                         <img class="img-fluid w-100" src="{{asset($post->image)}}" style="object-fit: cover;">
                         <div class="overlay position-relative bg-light">
@@ -93,17 +93,17 @@
                         </div>
                     </div>
                     @endforeach
-                  
+
                 </div>
             </div>
             @endif
             @endforeach
-           
+
         </div>
     </div>
 </div>
 </div>
 <!-- Category News Slider End -->
 
-    
+
 @endsection

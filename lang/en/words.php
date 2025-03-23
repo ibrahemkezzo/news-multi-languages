@@ -23,5 +23,5 @@ return [
     'password'=>'Password',
     'Settings'=>'Settings',
     'logout'=>'Logout',
-    ''=>'',
+    'home'=>'Home',
 ];

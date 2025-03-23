@@ -77,17 +77,18 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $data = [
-            'logo' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-        ];
+        // $data = [
+        //     'logo' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+        // ];
         foreach (config('app.languages') as $key => $value) {
             $data[$key . '*.title'] = 'nullable|string';
             $data[$key . '*.content'] = 'nullable|string';
             $data[$key . '*.address'] = 'nullable|string';
         }
-        $validatedData = $request->validate($data);
+        // $validatedData = $request->validate($data);
 
         $this->authorize('viewAny', $this->setting);
+        // dd($request->file());
         $category =  $request->except('image', '_token');
         if ($request->file('image')) {
             $file = $request->file('image');
@@ -97,7 +98,6 @@ class CategoryController extends Controller
             // dd($path);
             $category['image'] = $path;
         }
-        // dd($category);
         Category::create($category);
         return redirect()->route('dashboard.category.index');
 

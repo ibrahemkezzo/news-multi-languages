@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 class SettingController extends Controller
 {
-    public function index(){    
+    public function index(){
         $setting = Setting::first();
         $this->authorize('view', $setting);
         // dd($setting);
@@ -37,6 +37,7 @@ class SettingController extends Controller
         $updata = $request->except('logo', 'favicon', '_token');
 
          $setting->update($request->except('logo', 'favicon', '_token'));
+        //  dd($request->all());
         if ($request->file('logo')) {
             $file = $request->file('logo');
             $filename = Str::uuid() . $file->getClientOriginalName();

@@ -23,7 +23,7 @@
     <div class="container-fluid">
 
         <div class="animated fadeIn">
-            <form action="{{ Route('dashboard.category.store') }}" method="post">
+            <form action="{{ Route('dashboard.category.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
                 <div class="row">
@@ -44,7 +44,8 @@
 
                             <div class="form-group col-md-12">
                                 <label>{{ __('words.image') }}</label>
-                                <input type="file" name="image" class="form-control" placeholder="{{ __('words.image') }}">
+                                {{-- <input type="file" name="image" class="form-control" placeholder="{{ __('words.image') }}"/> --}}
+                                <input type="file" name="image" class="form-control" placeholder="Enter Image">
                             </div>
                             <div class="form-group col-md-12">
                                 <label>{{ __('words.status') }}</label>

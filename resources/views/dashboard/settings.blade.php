@@ -46,7 +46,7 @@
                             <div class="form-group col-md-6">
                                 <label>{{ __('words.logo') }}</label>
                                 <img src="{{asset($setting->logo)}}" alt="" style="height: 50px">
-                                <input type="file" name="logo" class="form-control" placeholder="Enter Email..">
+                                <input type="file" name="logo" class="form-control" placeholder="Enter Logo..">
                             </div>
                             <div class="form-group col-md-6">
                                 <label>{{ __('words.favicon') }}</label>

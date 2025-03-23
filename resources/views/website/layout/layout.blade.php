@@ -51,7 +51,7 @@
                 </a>
             </div>
             <div class="col-lg-8 text-center text-lg-right">
-                <img class="img-fluid" src="{{ asset($setting->logo) }}" alt="" style="height: 70px">
+                <img class="img-fluid" src="{{ asset($setting->favicon) }}" alt="" style="height: 70px">
             </div>
         </div>
     </div>
@@ -72,9 +72,22 @@
                     <a href="{{route('index')}}" class="nav-item nav-link active">{{ __('words.home') }}</a>
                     @foreach ($categories as $category)
                         <div class="nav-item dropdown">
-                            <a  @if (count($category->children) == 0) href="{{Route('category',$category->id)}}" @else href='#' @endif class="nav-link  @if (count($category->children) > 0) dropdown-toggle  @endif"
-                                @if(count($category->children) > 0)  data-toggle="dropdown" @endif
-                                 >{{ $category->title }}</a>
+                            @if ($category->parent == 0)
+                                <a  @if (count($category->children) == 0)
+                                        href="{{Route('category',$category->id)}}"
+                                    @else
+                                        href='#'
+                                    @endif
+                                    class="nav-link
+                                    @if (count($category->children) > 0)
+                                        dropdown-toggle
+                                    @endif"
+                                    @if(count($category->children) > 0)
+                                        data-toggle="dropdown"
+                                    @endif
+                                    >{{ $category->title }}
+                                </a>
+                            @endif
                             @if (count($category->children) > 0)
                                 <div class="dropdown-menu rounded-0 m-0">
                                     @foreach ($category->children as $child)
@@ -92,7 +105,7 @@
 
 
 
-                  
+
                 </div>
 
 
@@ -115,7 +128,7 @@
 
 
 
-                
+
                 <div class="input-group ml-auto" style="width: 100%; max-width: 300px;">
                     <input type="text" class="form-control" placeholder="Keyword">
                     <div class="input-group-append">
